@@ -60,3 +60,6 @@ All necesseryt script commands are set:
 
 I used [Netlify](https://www.netlify.com/) to deploy, other option you can use [Heroku](https://www.heroku.com/).
 You can see the project [here](https://udacity-travel-prod.netlify.app/)
+
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bb4d2894-1f0e-4dbc-889e-9cc48b841064/deploy-status)](https://app.netlify.com/sites/udacity-travel-prod/deploys)
