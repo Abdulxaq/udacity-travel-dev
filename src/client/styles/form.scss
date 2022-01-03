@@ -1,5 +1,7 @@
 @import 'colors';
 form {
+    display: flex;
+    flex-wrap: wrap;
     border: 1px solid $main-color;
     border-radius: 3px;
     padding: 40px;
@@ -12,6 +14,12 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+    #dateInput{
+        border: $main-color solid 2px !important;
+        margin: 10px;
+        width: 200px;
+        font-size: 1rem;
+    }
 }
 
 input {
@@ -21,6 +29,6 @@ input {
 }
 input[type='submit']{
     background:  #3014b1 !important;
-    margin-left: 25px;
+    width: 150px;
 }
 

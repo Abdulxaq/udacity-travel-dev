@@ -29,7 +29,6 @@
 </head>
 
 <body>
-    <img id="back" src="./src/client/images/back.jpg" alt="Background">
     <header>
         <div class="logo">
             Travel
@@ -50,21 +49,42 @@
 
     <main>
         <section>
-            <form class="" onsubmit="return handleSubmit(event)">
-                <!-- <textarea id="name" type="text" name="input"  placeholder="Name"></textarea> -->
-                <!--Textarea with icon prefix-->
-                <div class="md-form pink-textarea active-amber-textarea-2">
-                    <i class="fas fa-pencil-alt prefix"> Website classification</i>
+            <form id="form" onsubmit="return handleSubmit(event)">
+                <!-- <div class="md-form pink-textarea active-amber-textarea-2" id="nameDiv">
                     <input type="url" id="name" value="" placeholder="Travel to" class="md-textarea form-control"
                         rows="3">
-                    <label for="name"></label>
                 </div>
+                <input type="date" id="dateInput" value="" class="md-textarea form-control"
+                rows="3">
                 <input id="check" class="btn btn-secondary" type="submit" value="Let's travel"
-                    onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)"> -->
             </form>
             <section>
                 <section>
-                    <div id="results"></div>
+                    <div id="results">
+                        <div id="card">
+
+
+                            <!-- <img src="https://images.unsplash.com/photo-1641078864179-ba5d900e43f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="" id="placeImg" >
+                            <p id="placeName" >America</p>
+                            <p>Weather forcast for the next<br> 16 days in <u id="placeName2" >America</u> </p>
+
+
+                            <div id="tempFrame" >
+
+                                <div id="tempSet" >
+                                    <h6>2000-20-45</h6>
+                                    <div id="weather" >
+                                        <p class="text">No rain</p>
+                                        <p class="text">Snow</p>
+                                    </div>
+                                    <p class="text temp">Temp: 35</p>
+                                </div>
+                            </div> -->
+
+
+                        </div>
+                    </div>
                 </section>
     </main>
 

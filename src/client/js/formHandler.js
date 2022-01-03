@@ -1,20 +1,37 @@
+const form = document.getElementById('form');
+const d = new Date();
+const year = d.getFullYear();
+const month = d.getMonth();
+const day = d.getDate();
+
+
+form.innerHTML = `        <div class="md-form pink-textarea active-amber-textarea-2" id="nameDiv">
+<input type="url" id="name" value="" placeholder="Travel to" class="md-textarea form-control"
+    rows="3">
+</div>
+<input type="date" id="dateInput" min="${year}-0${month + 1}-0${day}" max="${year}-0${month + 1}-${day + 15}" class="md-textarea form-control"
+rows="3">
+<input id="check" class="btn btn-secondary" type="submit" value="Let's travel"
+onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">`
+
+
 
 
 const handleSubmit = async (event) => {
   event.preventDefault()
   const placeName = document.getElementById('name').value;
   const results = document.getElementById('results');
+
+  const card = document.getElementById('card');
+
   const user = 'abdulkhak';
   const geonamesBaseUrl = 'http://api.geonames.org/searchJSON?q=';
-  const weatherBitBaseUrl = 'https://api.weatherbit.io/v2.0/forecast/hourly?lat=38.123&lon=-78.543&hours=48';
-  const pixabyBaseUrl = 'https://pixabay.com/api/?'
   const weatherBitApiKey = 'c7a7dc2f7e16491d8a35bdc0df767fc9';
-  const pixabayApiKey = '24890188-5152ada420a008bea2b482ee4'
   const unspLashApiKey = 'wvkoWLVPOx07gcvHvdfL-ZPSylMDpMX2W4FM0WvMMRU';
 
 
   const rows = 1;
-  results.innerHTML = '';
+  card.innerHTML = '';
   if (placeName == '') {
     return alert('Please, enter a LINK to check!')
   }
@@ -47,8 +64,16 @@ const handleSubmit = async (event) => {
 
         }))
         .then(({ weatherBody }) => {
+          const dateInput = document.getElementById('dateInput').value;
+          const valOfEnteredInput = dateInput.slice(8, 10);
+          const realDay = day - valOfEnteredInput
+          console.log(weatherBody);
+          console.log(dateInput);
+          console.log(valOfEnteredInput);
+          console.log(realDay);
 
           return weatherBody;
+
 
         })
         .then(({ data }) => {
@@ -61,61 +86,83 @@ const handleSubmit = async (event) => {
 
             })
             .then((datata) => {
+
+              /*
+              
+              <img src="https://images.unsplash.com/photo-1641078864179-ba5d900e43f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="" id="placeImg" >
+                                          <p id="placeName" >America</p>
+                                          <p>Weather forcast for the next<br> 16 days in <u id="placeName2" >America</u> </p>
+              
+              
+                                          <div id="tempFrame" >
+              
+                                              <div id="tempSet" >
+                                                  <h6>2000-20-45</h6>
+                                                  <div id="weather" >
+                                                      <p class="text">No rain</p>
+                                                      <p class="text">Snow</p>
+                                                  </div>
+                                                  <p class="text temp">Temp: 35</p>
+                                              </div>
+                                          </div>
+
+              
+              */
+
               console.log(datata.results[0].urls);
 
-              for (let i = 0; i < datata.results.length; i++) {
-                const { full, raw, regular, small, thumb } = datata.results[i].urls
-                let img4 = document.createElement('img')
-                img4.setAttribute('src', full)
-                results.append(img4);
+              const { full, raw, regular, small, thumb } = datata.results[0].urls;
+              let img4 = document.createElement('img');
+              img4.setAttribute('src', full);
+              card.append(img4);
+              const p = document.createElement("p");
+              const placeN = document.createElement("p");
+              placeN.setAttribute('id', 'placeName')
+              placeN.innerText = placeName;
+              p.innerHTML = `Weather forcast for the next<br> 16 days in <u>${placeName}</u>`
+              card.append(placeN)
+              card.append(p)
+
+            }).then(()=>{
+
+              console.log(data);
+              const tempFrame = document.createElement('div');
+              tempFrame.setAttribute("id", "tempFrame");
+
+
+
+
+              for (let i = 0; i < data.length; i++) {
+                const { pop, snow, temp, datetime } = data[i];
+
+                const tempSet = document.createElement('div');
+                tempSet.setAttribute("id", "tempSet");
+
+                const h6 = document.createElement('h6');
+
+                h6.innerText = datetime;
+                tempSet.append(h6);
+              
+                const weather = document.createElement('div');
+                let p1 = document.createElement('p');
+                let p2 = document.createElement('p');
+                let p3 = document.createElement('p');
+                p1.setAttribute('class', 'text');
+                p2.setAttribute('class', 'text');
+                p3.setAttribute('class', 'text');
+
+                p1.textContent = pop > 40 ? 'Rain' : 'No rain';
+                p2.textContent = snow > 30 ? 'Snow' : 'No Snow';
+                p3.textContent = temp;
+                weather.append(p1);
+                weather.append(p2);
+                weather.append(p3);
+                tempSet.append(weather);
+                tempFrame.append(tempSet)
               }
-
+              card.append(tempFrame);
             })
-          //               .then(({hits})=>{
-
-
-          //                 for (let i = 0; i < hits.length; i++) {
-          //                   const {webformatURL} = hits[i];
-          //                   let img4 = document.createElement('img')
-          //                   img4.setAttribute('src', webformatURL)
-          //                   results.append(img4);
-
-          //                 }
-
-
-          //                 console.log(hits);
-
-          //               })
-
-          console.log(data);
-
-          results.innerHTML = `
-                        <div class="tab" >
-                            <p>Place name: ${toponymName}</p>
-                            <p>Place latitude: ${lat}</p>
-                            <p>Place longtitude: ${lng}</p>
-                        </div>
-                        <div class="tab" >
-                            <p>Rain</p>
-                            <p>Snow</p>
-                            <p>Temp</p>
-                        </div>
-                        `
-          for (let i = 0; i < data.length; i++) {
-            const { pop, snow, temp } = data[i];
-            let div = document.createElement('div')
-            let p1 = document.createElement('p')
-            let p2 = document.createElement('p')
-            let p3 = document.createElement('p')
-            p1.textContent = pop > 40 ? 'Rain' : 'No rain';
-            p2.textContent = snow > 30 ? 'Snow' : 'No Snow';
-            p3.textContent = temp;
-            div.append(p1)
-            div.append(p2)
-            div.append(p3)
-            results.append(div);
-
-          }
+    
 
         })
 
