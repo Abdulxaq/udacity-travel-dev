@@ -1,6 +1,6 @@
 # Project walk through
 
-This web app is website classifying app based on Url. In details, it defines the classification of website in percentage.
+This web app is website that displays image of given place and weather forcast of 16 days on given place.
 
 I used following things in project:
 - Webpack
@@ -10,7 +10,7 @@ I used following things in project:
 
 I used 3 APIs and chained them eachather in this project.
 APIs are:
-1) Geonames[Geonames](https://www.geonames.org/) API (to get latitutde and altitude of given any place name)
+1) [Geonames](https://www.geonames.org/) API (to get latitutde and altitude of given any place name)
 2) [Weatherbit](https://www.weatherbit.io/features) API (with latitude and altitude by geonames API, we can take 16 days weather forcast, including temperature, rain , snow and etc.)
 3) [Unsplash](https://unsplash.com/documentation#list-photos) APi (to get place image by given place name)
 
@@ -59,4 +59,4 @@ All necesseryt script commands are set:
 ## Deploying
 
 I used [Netlify](https://www.netlify.com/) to deploy, other option you can use [Heroku](https://www.heroku.com/).
-You can see the project [here](https://udacity-nlp.netlify.app/)
+You can see the project [here](https://udacity-travel-prod.netlify.app/)
