@@ -62,4 +62,4 @@ I used [Netlify](https://www.netlify.com/) to deploy, other option you can use [
 You can see the project [here](https://udacity-travel-prod.netlify.app/)
 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bb4d2894-1f0e-4dbc-889e-9cc48b841064/deploy-status)](https://app.netlify.com/sites/udacity-travel-prod/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/25787d4a-2491-42af-954a-2b6243e08c53/deploy-status)](https://app.netlify.com/sites/quirky-borg-236923/deploys)
