@@ -7,9 +7,12 @@ I used following things in project:
 - Sass
 - Webpack Loaders and Plugins
 - Service workers
-- [Meaningful Cloud API](https://learn.meaningcloud.com/developer/text-classification/2.0/console)
 
-I used [Meaningful Cloud API](https://learn.meaningcloud.com/developer/text-classification/2.0/console), it;s free and has other API options too, if you wish!
+I used 3 APIs and chained them eachather in this project.
+APIs are:
+1) Geonames[Geonames](https://www.geonames.org/) API (to get latitutde and altitude of given any place name)
+2) [Weatherbit](https://www.weatherbit.io/features) API (with latitude and altitude by geonames API, we can take 16 days weather forcast, including temperature, rain , snow and etc.)
+3) [Unsplash](https://unsplash.com/documentation#list-photos) APi (to get place image by given place name)
 
 
 # Getting started
@@ -21,10 +24,8 @@ Remember that once you clone, you will need to install everything:
 
 ## Setting up the API
 
-The [Meaningful Cloud API](https://learn.meaningcloud.com/developer/text-classification/2.0/console) is perhaps different than what you've used before. It has you install a node module to run certain commands through, it will simplify the requests we need to make from our node/express backend.
-
-## Step 1: Signup for an API key
-First, you will need to go [Meaningful Cloud API](https://learn.meaningcloud.com/developer/text-classification/2.0/console). Signing up will get you an API key.It is free.
+## Step 1: Signup for an APIs key
+First, you will need to go all above API webstes. And signing up will get you APIs key.
 
 
 ## Step 2: Set up the API key
