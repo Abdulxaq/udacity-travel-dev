@@ -10,8 +10,6 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 import './images/favicon.ico'
-import './images/back.jpg'
-import './images/back2.jpg'
 
 
 

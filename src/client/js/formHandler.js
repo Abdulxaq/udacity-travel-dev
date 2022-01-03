@@ -5,15 +5,6 @@ const month = d.getMonth();
 const day = d.getDate();
 
 
-form.innerHTML = `        <div class="md-form pink-textarea active-amber-textarea-2" id="nameDiv">
-<input type="url" id="name" value="" placeholder="Travel to" class="md-textarea form-control"
-    rows="3">
-</div>
-<input type="date" id="dateInput" min="${year}-0${month + 1}-0${day}" max="${year}-0${month + 1}-${day + 15}" class="md-textarea form-control"
-rows="3">
-<input id="check" class="btn btn-secondary" type="submit" value="Let's travel"
-onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">`
-
 
 
 
@@ -67,10 +58,10 @@ const handleSubmit = async (event) => {
           const dateInput = document.getElementById('dateInput').value;
           const valOfEnteredInput = dateInput.slice(8, 10);
           const realDay = day - valOfEnteredInput
-          console.log(weatherBody);
-          console.log(dateInput);
-          console.log(valOfEnteredInput);
-          console.log(realDay);
+          // console.log(weatherBody);
+          // console.log(dateInput);
+          // console.log(valOfEnteredInput);
+          // console.log(realDay);
 
           return weatherBody;
 
@@ -109,7 +100,7 @@ const handleSubmit = async (event) => {
               
               */
 
-              console.log(datata.results[0].urls);
+              // console.log(datata.results[0].urls);
 
               const { full, raw, regular, small, thumb } = datata.results[0].urls;
               let img4 = document.createElement('img');
@@ -125,7 +116,7 @@ const handleSubmit = async (event) => {
 
             }).then(()=>{
 
-              console.log(data);
+              // console.log(data);
               const tempFrame = document.createElement('div');
               tempFrame.setAttribute("id", "tempFrame");
 
@@ -167,7 +158,7 @@ const handleSubmit = async (event) => {
         })
 
     }).then(() => {
-      console.log('Working');
+      // console.log('Working');
     })
     .catch(error => console.log('error', error));
 
